@@ -46,14 +46,19 @@ fun test_map_content(l: List <String>){
 // (3) fill them with life
 
 // player 1
-fun player_rock(l: List<String>):Int{
-    var choice_1 :Int = 0
+fun player_rock(l: List<String>):String{
+    var choice_1 :String = ""
     return choice_1
 }
 
 // player 2
-fun player_random(l: List<String>):Int{
-    var choice_2 : Int = 1 // random
+fun player_random(l: List<String>):String{
+    var choice_2 : String = "" // random from list
     return choice_2
+}
+
+fun picRandomNumber(): Int{
+    var number :Int = 0
+    return number
 }
 
