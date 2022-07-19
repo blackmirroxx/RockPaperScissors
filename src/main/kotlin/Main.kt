@@ -64,3 +64,11 @@ fun picRandomNumber(): Int{
     return number
 }
 
+// parameter: list, results, player1, player2
+// player1 and player2 are functions passed as a parameter
+// return String
+fun playGame(l: List<String>, r: List<String>, player1: (List<String>) -> String, player2: (List<String>) -> String): String{
+    var whoWins : String = "";
+    return whoWins
+}
+
