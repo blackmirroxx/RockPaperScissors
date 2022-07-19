@@ -1,10 +1,15 @@
 
+// test driven development -> tdd
+// (1) build prototypes
+// (2) build tests
+// (3) fill them with life
 
 fun main(args: Array<String>) {
     println("Welcome to Rock Paper Scissors! ")
 
     // list are simpler than maps .. keep it simple
-    val rockPaperScissors = listOf("rock", "paper", "scissors")
+    val rockPaperScissors = listOf<String>("rock", "paper", "scissors")
+    val gameResult = listOf<String>("player_rock", "player_random", "draw") // whoWins
 
 
     test_map_content(rockPaperScissors)
@@ -40,10 +45,7 @@ fun test_map_content(l: List <String>){
 
 
 // logic
-// test driven development -> tdd
-// (1) build prototypes
-// (2) build tests
-// (3) fill them with life
+
 
 // player 1
 fun player_rock(l: List<String>):String{
