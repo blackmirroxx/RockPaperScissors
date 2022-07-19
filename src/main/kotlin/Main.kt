@@ -40,3 +40,7 @@ fun test_map_content(l: List <String>){
 
 
 // logic
+// test driven development -> tdd
+// (1) build prototypes
+// (2) build tests
+// (3) fill them with life
