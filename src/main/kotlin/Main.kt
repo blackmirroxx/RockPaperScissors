@@ -44,3 +44,16 @@ fun test_map_content(l: List <String>){
 // (1) build prototypes
 // (2) build tests
 // (3) fill them with life
+
+// player 1
+fun player_rock(l: List<String>):Int{
+    var choice_1 :Int = 0
+    return choice_1
+}
+
+// player 2
+fun player_random(l: List<String>):Int{
+    var choice_2 : Int = 1 // random
+    return choice_2
+}
+
