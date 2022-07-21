@@ -15,6 +15,10 @@ fun main(args: Array<String>) {
     // tests
     runAllTest(rockPaperScissors)
 
+    //play many games
+    //create stats
+    //present them
+
 }
 
 
