@@ -26,10 +26,10 @@ fun main(args: Array<String>) {
 fun runAllTest(l: List <String>) {
     // run all the tests
     // maker reports ... passes and fails
-    test_map_content(l)
+    test_list_content(l)
 }
 
-fun test_map_content(l: List <String>){
+fun test_list_content(l: List <String>){
     print("rock -> ")
     if (l.get(0).equals("rock")) {
         println("passed")
