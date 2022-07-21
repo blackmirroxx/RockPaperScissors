@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
 
 
     // tests
-    runAllTest(rockPaperScissors)
+    runAllTest(rockPaperScissors, participants)
 
     //play many games
     //create stats
@@ -23,10 +23,21 @@ fun main(args: Array<String>) {
 
 
 // test ----------------------------------------------------------------------------------------------------------------
-fun runAllTest(l: List <String>) {
+fun runAllTest(l: List <String>, p: List<String>) {
     // run all the tests
     // maker reports ... passes and fails
     test_list_content(l)
+
+    // test player_rock
+    // pics always rock
+    print("testing player rock -> : ")
+    if ( test_player(l, p, ::player_rock, "rock") ) {
+        println("passed")
+    } else {
+        println("failed")
+    }
+    println("player rock has " + test_player(l, p, ::player_rock, "rock"))
+
 }
 
 fun test_list_content(l: List <String>){
@@ -53,14 +64,23 @@ fun test_list_content(l: List <String>){
 
 }
 
+fun test_player(l: List<String>, p: List<String>, player: (List<String>) -> String, expeted_pic: String): Boolean{
+    var test: Boolean = false
+
+    test = player(l).equals(expeted_pic)
+    return test
+}
+
+
+
 
 // logic ---------------------------------------------------------------------------------------------------------------
 
 
 // player 1
 fun player_rock(l: List<String>):String{
-    var choice_1 :String = ""
-    return choice_1
+    var choice1 :String = ""
+    return choice1
 }
 
 // player 2
@@ -78,7 +98,7 @@ fun picRandomNumber(): Int{
 // player1 and player2 are functions passed as a parameter
 // return String
 fun playGame(l: List<String>, p: List<String>, player1: (List<String>) -> String, player2: (List<String>) -> String): String{
-    var whoWins : String = "";
+    var whoWins : String = ""
     return whoWins
 }
 
