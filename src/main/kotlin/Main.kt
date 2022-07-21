@@ -36,7 +36,13 @@ fun runAllTest(l: List <String>, p: List<String>) {
     } else {
         println("failed")
     }
-    println("player rock has " + test_player(l, p, ::player_rock, "rock"))
+
+    // check random
+    print("random numbers -> ")
+    for (index: Int in 1..10){
+        print("" +picRandomNumber() + " ")
+    }
+    println()
 
 }
 
@@ -90,7 +96,8 @@ fun player_random(l: List<String>):String{
 }
 
 fun picRandomNumber(): Int{
-    var number :Int = 0
+    var number :Int = (1..100).random()
+    number %= 3 // improveRandomPic
     return number
 }
 

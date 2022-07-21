@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46f40e6d-62a8-47db-82dc-b7591c1937b7" name="Changes" comment="first test for player rock">
+    <list default="true" id="46f40e6d-62a8-47db-82dc-b7591c1937b7" name="Changes" comment="random()">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658441894105</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="first test for player rock">
+      <created>1658442527046</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1658442527047</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,6 +130,7 @@
     <MESSAGE value="prototyps - test still missing" />
     <MESSAGE value="prototypes - test still missing" />
     <MESSAGE value="first test for player rock" />
-    <option name="LAST_COMMIT_MESSAGE" value="first test for player rock" />
+    <MESSAGE value="random()" />
+    <option name="LAST_COMMIT_MESSAGE" value="random()" />
   </component>
 </project>
