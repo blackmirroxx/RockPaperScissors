@@ -9,16 +9,22 @@ fun main(args: Array<String>) {
 
     // list are simpler than maps .. keep it simple
     val rockPaperScissors = listOf<String>("rock", "paper", "scissors")
-    val gameResult = listOf<String>("player_rock", "player_random", "draw") // whoWins
+    val participants = listOf<String>("player_rock", "player_random", "draw") // whoWins
 
 
-    test_map_content(rockPaperScissors)
-
+    // tests
+    runAllTest(rockPaperScissors)
 
 }
 
 
-// test
+// test ----------------------------------------------------------------------------------------------------------------
+fun runAllTest(l: List <String>) {
+    // run all the tests
+    // maker reports ... passes and fails
+    test_map_content(l)
+}
+
 fun test_map_content(l: List <String>){
     print("rock -> ")
     if (l.get(0).equals("rock")) {
@@ -44,7 +50,7 @@ fun test_map_content(l: List <String>){
 }
 
 
-// logic
+// logic ---------------------------------------------------------------------------------------------------------------
 
 
 // player 1
@@ -64,11 +70,37 @@ fun picRandomNumber(): Int{
     return number
 }
 
-// parameter: list, results, player1, player2
+// parameter: list, participants, player1, player2, player3 (draws)
 // player1 and player2 are functions passed as a parameter
 // return String
-fun playGame(l: List<String>, r: List<String>, player1: (List<String>) -> String, player2: (List<String>) -> String): String{
+fun playGame(l: List<String>, p: List<String>, player1: (List<String>) -> String, player2: (List<String>) -> String): String{
     var whoWins : String = "";
     return whoWins
 }
+
+fun playManyGames(l: List<String>,
+                  p: List<String>,
+                  player1: (List<String>) -> String,
+                  player2: (List<String>) -> String,
+                  runs: Int): List<String>{
+    var gamesList: List<String> = mutableListOf("")
+    return gamesList
+}
+
+fun countWinsForPlayer(g: List<String>, player : String): Double{
+    var winRate: Double = 0.0 // in %
+    // speoial use case for player "draw"
+    return winRate
+}
+
+fun countDraws(g: List<String>): Double{
+    var drawRate: Double = 0.0 // in %
+    return drawRate
+}
+
+fun createStatisticsForPlayer(g: List<String>, player: String): List<Double>{
+    var statistics: List<Double> = mutableListOf(0.0, 0.0)
+    return statistics
+}
+
 
