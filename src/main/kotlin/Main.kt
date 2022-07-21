@@ -79,7 +79,7 @@ fun test_player(l: List<String>, p: List<String>, player: (List<String>) -> Stri
 
 // player 1
 fun player_rock(l: List<String>):String{
-    var choice1 :String = ""
+    var choice1 :String = l.get(0)
     return choice1
 }
 
