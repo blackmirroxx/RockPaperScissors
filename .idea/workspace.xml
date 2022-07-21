@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46f40e6d-62a8-47db-82dc-b7591c1937b7" name="Changes" comment="prototyps - test still missing">
+    <list default="true" id="46f40e6d-62a8-47db-82dc-b7591c1937b7" name="Changes" comment="prototypes - test still missing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658432590165</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="prototypes - test still missing">
+      <created>1658432632871</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1658432632871</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -93,6 +99,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="prototyps - test still missing" />
-    <option name="LAST_COMMIT_MESSAGE" value="prototyps - test still missing" />
+    <MESSAGE value="prototypes - test still missing" />
+    <option name="LAST_COMMIT_MESSAGE" value="prototypes - test still missing" />
   </component>
 </project>
