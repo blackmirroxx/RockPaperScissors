@@ -44,6 +44,18 @@ fun runAllTest(l: List <String>, p: List<String>) {
     }
     println()
 
+    // check player random
+    print("player random pics ->")
+    for (index: Int in 1..10){
+        print("" + player_random(l) + " ")
+    }
+    println()
+    var playerRandPics : List<String> = mutableListOf<String>()
+    for (index: Int in 1 .. 10){
+        var e: List<String> =  mutableListOf<String>(player_random(l))
+        playerRandPics += e
+    }
+    println("player random pics -> " + playerRandPics)
 
 }
 
@@ -92,7 +104,7 @@ fun player_rock(l: List<String>):String{
 
 // player 2
 fun player_random(l: List<String>):String{
-    var choice_2 : String = "" // random from list
+    var choice_2 : String = l.get(picRandomNumber()) // random from list
     return choice_2
 }
 
