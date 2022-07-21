@@ -39,10 +39,11 @@ fun runAllTest(l: List <String>, p: List<String>) {
 
     // check random
     print("random numbers -> ")
-    for (index: Int in 1..10){
+    for (index: Int in 1..30){
         print("" +picRandomNumber() + " ")
     }
     println()
+
 
 }
 
