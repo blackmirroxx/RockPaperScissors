@@ -73,6 +73,7 @@ fun runAllTest(l: List <String>, p: List<String>) {
         println("player rock vs player random -> rock vs " + playerRandomPics.get(index) + " -> " + whoWins )
     }
 
+
 }
 
 fun test_list_content(l: List <String>){
