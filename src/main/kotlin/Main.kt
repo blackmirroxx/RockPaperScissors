@@ -142,19 +142,23 @@ fun test_list_content(l: List <String>){
 }
 
 fun test_player(l: List<String>, p: List<String>, player: (List<String>) -> String, expeted_pic: String): Boolean{
-    var test: Boolean = false
-    if (p.get(1).equals("rock")) {
+    val test: Boolean
+    if (p.get(0).equals("player_rock")) {
         test = player(l).equals(expeted_pic)
     }else{
         println("Not implemented yet")
+        test = false
     }
     return test
 }
 
 fun test_player_contains(l: List<String>, p: List<String>, player: (List<String>) -> String): Boolean{
     var test: Boolean = false
-
-    test = l.contains( player(l) )
+    if (p.size>=3) {
+        test = l.contains(player(l))
+    } else {
+        println("something went wrong")
+    }
     return test
 }
 
