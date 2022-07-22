@@ -73,7 +73,32 @@ fun runAllTest(l: List <String>, p: List<String>) {
         println("player rock vs player random -> rock vs " + playerRandomPics.get(index) + " -> " + whoWins )
     }
 
+    println("play some more ...")
+    for (index: Int in 1..10){
+        var whoWins: String = playGame(l, p, ::player_rock, ::player_random)
+        println("player rock vs player random -> " + whoWins )
+    }
+    println()
 
+    println("Testing playing against -> ")
+    print("rock against rock -> ")
+    if ( playRockAgainst(l, p, 0).equals("draw") ){
+        println("passed")
+    } else {
+        println("failed")
+    }
+    print("rock against paper -> ")
+    if ( playRockAgainst(l, p, 1).equals(p.get(1))){
+        println("passed")
+    } else {
+        println("failed")
+    }
+    print("rock against scissors -> ")
+    if ( playRockAgainst(l, p, 2).equals(p.get(0))){
+        println("passed")
+    } else {
+        println("failed")
+    }
 }
 
 fun test_list_content(l: List <String>){
