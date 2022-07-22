@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46f40e6d-62a8-47db-82dc-b7591c1937b7" name="Changes" comment="playAgainstRock">
+    <list default="true" id="46f40e6d-62a8-47db-82dc-b7591c1937b7" name="Changes" comment="some stats win rate and draws">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
     </list>
@@ -174,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658491023600</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="some stats win rate and draws">
+      <created>1658501893801</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1658501893801</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,6 +206,7 @@
     <MESSAGE value="playGame" />
     <MESSAGE value="playAgainsRock" />
     <MESSAGE value="playAgainstRock" />
-    <option name="LAST_COMMIT_MESSAGE" value="playAgainstRock" />
+    <MESSAGE value="some stats win rate and draws" />
+    <option name="LAST_COMMIT_MESSAGE" value="some stats win rate and draws" />
   </component>
 </project>

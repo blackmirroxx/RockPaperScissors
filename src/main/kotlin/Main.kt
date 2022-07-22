@@ -231,7 +231,7 @@ fun countWinsForPlayer(g: List<String>, player : String): Double{
     // calculate win rate
     winRate = count.toDouble() / amountOfEntries.toDouble()
     winRate *= 100 // convert to percent
-    // speoial use case for player "draw"
+    // special use case for player "draw"
     return winRate
 }
 
@@ -241,7 +241,7 @@ fun countDraws(g: List<String>): Double{
 }
 
 fun createStatisticsForPlayer(g: List<String>, player: String): List<Double>{
-    var statistics: List<Double> = mutableListOf(0.0, 0.0)
+    var statistics: List<Double> = mutableListOf<Double>()
     return statistics
 }
 
