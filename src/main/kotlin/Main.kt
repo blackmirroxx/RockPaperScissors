@@ -50,9 +50,9 @@ fun runAllTest(l: List <String>, p: List<String>) {
         print("" + player_random(l) + " ")
     }
     println()
-    var playerRandomPics : List<String> = mutableListOf<String>()
+    val playerRandomPics : MutableList<String> = mutableListOf<String>().toMutableList()
     for (index: Int in 1 .. 10){
-        var e: List<String> =  mutableListOf<String>(player_random(l))
+        val e: List<String> =  mutableListOf<String>(player_random(l))
         playerRandomPics += e
     }
     println("player random pics -> " + playerRandomPics)
@@ -69,14 +69,14 @@ fun runAllTest(l: List <String>, p: List<String>) {
 
     println("Play some games -> ")
     for (index: Int in playerRandomPics.indices){
-        var whoWins: String = playRockAgainst( l, p, l.indexOf(playerRandomPics.get(index)) )
+        val whoWins: String = playRockAgainst( l, p, l.indexOf(playerRandomPics.get(index)) )
         println("player rock vs player random -> rock vs " + playerRandomPics.get(index) + " -> " + whoWins )
     }
 
     println()
     println("play some more ...")
     for (index: Int in 1..10){
-        var whoWins: String = playGame(l, p, ::player_rock, ::player_random)
+        val whoWins: String = playGame(l, p, ::player_rock, ::player_random)
         println("player rock vs player random -> " + whoWins )
     }
     println()
@@ -105,7 +105,7 @@ fun runAllTest(l: List <String>, p: List<String>) {
     println()
     println()
     println("Create a sample with 100 games : ")
-    var testGames: List<String> = playManyGames(l, p, ::player_rock, ::player_random, 100)
+    val testGames: List<String> = playManyGames(l, p, ::player_rock, ::player_random, 100)
     for (index: Int in testGames.indices){
         println(" " + testGames.get(index))
     }
@@ -143,8 +143,11 @@ fun test_list_content(l: List <String>){
 
 fun test_player(l: List<String>, p: List<String>, player: (List<String>) -> String, expeted_pic: String): Boolean{
     var test: Boolean = false
-
-    test = player(l).equals(expeted_pic)
+    if (p.get(1).equals("rock")) {
+        test = player(l).equals(expeted_pic)
+    }else{
+        println("Not implemented yet")
+    }
     return test
 }
 
