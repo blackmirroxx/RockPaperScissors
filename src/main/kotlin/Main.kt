@@ -26,12 +26,12 @@ fun main() {
 fun runAllTest(l: List <String>, p: List<String>) {
     // run all the tests
     // maker reports ... passes and fails
-    test_list_content(l)
+    testListContent(l)
 
     // test player_rock
     // pics always rock
     print("testing player rock -> : ")
-    if ( test_player(l, p, ::player_rock, "rock") ) {
+    if ( testPlayer(l, p, ::playerRock, "rock") ) {
         println("passed")
     } else {
         println("failed")
@@ -47,19 +47,19 @@ fun runAllTest(l: List <String>, p: List<String>) {
     // check player random
     print("player random pics ->")
     for (index: Int in 1..10){
-        print("" + player_random(l) + " ")
+        print("" + playerRandom(l) + " ")
     }
     println()
     val playerRandomPics : MutableList<String> = mutableListOf<String>().toMutableList()
     for (index: Int in 1 .. 10){
-        val e: List<String> =  mutableListOf<String>(player_random(l))
+        val e: List<String> =  mutableListOf<String>(playerRandom(l))
         playerRandomPics += e
     }
     println("player random pics -> " + playerRandomPics)
 
     print("testing player random -> ")
     for (index: Int in playerRandomPics.indices) {
-        if (test_player_contains(l, p, ::player_random)) {
+        if (testPlayerContains(l, p, ::playerRandom)) {
             print("passed ")
         } else {
             print("failed ")
@@ -76,7 +76,7 @@ fun runAllTest(l: List <String>, p: List<String>) {
     println()
     println("play some more ...")
     for (index: Int in 1..10){
-        val whoWins: String = playGame(l, p, ::player_rock, ::player_random)
+        val whoWins: String = playGame(l, p, ::playerRock, ::playerRandom)
         println("player rock vs player random -> " + whoWins )
     }
     println()
@@ -105,7 +105,7 @@ fun runAllTest(l: List <String>, p: List<String>) {
     println()
     println()
     println("Create a sample with 100 games : ")
-    val testGames: List<String> = playManyGames(l, p, ::player_rock, ::player_random, 100)
+    val testGames: List<String> = playManyGames(l, p, ::playerRock, ::playerRandom, 100)
     for (index: Int in testGames.indices){
         println(" " + testGames.get(index))
     }
@@ -117,7 +117,7 @@ fun runAllTest(l: List <String>, p: List<String>) {
     println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 1))
 }
 
-fun test_list_content(l: List <String>){
+fun testListContent(l: List <String>){
     print("rock -> ")
     if (l.get(0).equals("rock")) {
         println("passed")
@@ -141,7 +141,7 @@ fun test_list_content(l: List <String>){
 
 }
 
-fun test_player(l: List<String>, p: List<String>, player: (List<String>) -> String, expeted_pic: String): Boolean{
+fun testPlayer(l: List<String>, p: List<String>, player: (List<String>) -> String, expeted_pic: String): Boolean{
     val test: Boolean
     if (p.get(0).equals("player_rock")) {
         test = player(l).equals(expeted_pic)
@@ -152,7 +152,7 @@ fun test_player(l: List<String>, p: List<String>, player: (List<String>) -> Stri
     return test
 }
 
-fun test_player_contains(l: List<String>, p: List<String>, player: (List<String>) -> String): Boolean{
+fun testPlayerContains(l: List<String>, p: List<String>, player: (List<String>) -> String): Boolean{
     val test: Boolean
     if (p.size>=3) {
         test = l.contains(player(l))
@@ -169,13 +169,13 @@ fun test_player_contains(l: List<String>, p: List<String>, player: (List<String>
 
 
 // player 1
-fun player_rock(l: List<String>):String{
+fun playerRock(l: List<String>):String{
     val choice1 :String = l.get(0)
     return choice1
 }
 
 // player 2
-fun player_random(l: List<String>):String{
+fun playerRandom(l: List<String>):String{
     val choice2 : String = l.get(picRandomNumber()) // random from list
     return choice2
 }
