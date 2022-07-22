@@ -50,12 +50,22 @@ fun runAllTest(l: List <String>, p: List<String>) {
         print("" + player_random(l) + " ")
     }
     println()
-    var playerRandPics : List<String> = mutableListOf<String>()
+    var playerRandomPics : List<String> = mutableListOf<String>()
     for (index: Int in 1 .. 10){
         var e: List<String> =  mutableListOf<String>(player_random(l))
-        playerRandPics += e
+        playerRandomPics += e
     }
-    println("player random pics -> " + playerRandPics)
+    println("player random pics -> " + playerRandomPics)
+
+    print("testing player random -> ")
+    for (index: Int in playerRandomPics.indices) {
+        if (test_player_contains(l, p, ::player_random)) {
+            print("passed ")
+        } else {
+            print("failed ")
+        }
+    }
+
 
 }
 
@@ -90,6 +100,12 @@ fun test_player(l: List<String>, p: List<String>, player: (List<String>) -> Stri
     return test
 }
 
+fun test_player_contains(l: List<String>, p: List<String>, player: (List<String>) -> String): Boolean{
+    var test: Boolean = false
+
+    test = l.contains( player(l) )
+    return test
+}
 
 
 
