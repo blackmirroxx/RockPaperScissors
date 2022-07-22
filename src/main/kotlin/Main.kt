@@ -153,11 +153,12 @@ fun test_player(l: List<String>, p: List<String>, player: (List<String>) -> Stri
 }
 
 fun test_player_contains(l: List<String>, p: List<String>, player: (List<String>) -> String): Boolean{
-    var test: Boolean = false
+    val test: Boolean
     if (p.size>=3) {
         test = l.contains(player(l))
     } else {
         println("something went wrong")
+        test = false
     }
     return test
 }
@@ -169,13 +170,13 @@ fun test_player_contains(l: List<String>, p: List<String>, player: (List<String>
 
 // player 1
 fun player_rock(l: List<String>):String{
-    var choice1 :String = l.get(0)
+    val choice1 :String = l.get(0)
     return choice1
 }
 
 // player 2
 fun player_random(l: List<String>):String{
-    var choice2 : String = l.get(picRandomNumber()) // random from list
+    val choice2 : String = l.get(picRandomNumber()) // random from list
     return choice2
 }
 
@@ -189,14 +190,14 @@ fun picRandomNumber(): Int{
 // player1 and player2 are functions passed as a parameter
 // return String
 fun playGame(l: List<String>, p: List<String>, player1: (List<String>) -> String, player2: (List<String>) -> String): String{
-    var whoWins : String = ""
-    var pl1choice : String = player1(l)
-    var pl2choice : String = player2(l)
+    val whoWins : String
+    val pl1choice : String = player1(l)
+    val pl2choice : String = player2(l)
 
     if (pl1choice.equals("rock")) {
         whoWins = playRockAgainst(l, p, l.indexOf(pl2choice))
     }else{
-
+        whoWins = ""
     }
     return whoWins
 }
@@ -206,11 +207,10 @@ fun playManyGames(l: List<String>,
                   player1: (List<String>) -> String,
                   player2: (List<String>) -> String,
                   runs: Int): List<String>{
-    var gamesList: List<String> = mutableListOf<String>()
 
-
+    val gamesList: MutableList<String> = mutableListOf<String>().toMutableList()
     for (index: Int in 1..runs){
-        var e: List<String> = mutableListOf(playGame(l, p, player1, player2))
+        val e: List<String> = mutableListOf(playGame(l, p, player1, player2))
         gamesList += e
     }
     return gamesList
@@ -229,9 +229,9 @@ fun playRockAgainst(l: List<String>, p: List<String>, against: Int): String {
 }
 
 fun countWinsForPlayer(g: List<String>, player : String): Double{
-    var winRate: Double = 0.0 // in %
-    var amountOfEntries: Int = g.size
-    var count: Int = 0
+    var winRate: Double  // in %
+    val amountOfEntries: Int = g.size
+    var count = 0
     for (index: Int in g.indices){
       if (g.get(index).equals(player)){
             count += 1
@@ -247,10 +247,10 @@ fun countWinsForPlayer(g: List<String>, player : String): Double{
 
 
 fun createStatisticsForPlayer(g: List<String>, p: List<String>, player: Int): List<Double>{
-    var statistics: List<Double> = mutableListOf<Double>()
-    var wins: Double = countWinsForPlayer(g, p.get(player))
-    var draws: Double = countWinsForPlayer(g, p.get(2))
-    var losses: Double = 100.00 - (wins+draws)
+    val statistics: List<Double>
+    val wins: Double = countWinsForPlayer(g, p.get(player))
+    val draws: Double = countWinsForPlayer(g, p.get(2))
+    val losses: Double = 100.00 - (wins+draws)
 
     statistics =  mutableListOf(wins, draws, losses)
 
