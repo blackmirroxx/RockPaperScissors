@@ -73,6 +73,7 @@ fun runAllTest(l: List <String>, p: List<String>) {
         println("player rock vs player random -> rock vs " + playerRandomPics.get(index) + " -> " + whoWins )
     }
 
+    println()
     println("play some more ...")
     for (index: Int in 1..10){
         var whoWins: String = playGame(l, p, ::player_rock, ::player_random)
@@ -99,6 +100,18 @@ fun runAllTest(l: List <String>, p: List<String>) {
     } else {
         println("failed")
     }
+
+    // play many games
+    println()
+    println()
+    println("Create a sample with 100 games : ")
+    var testGames: List<String> = playManyGames(l, p, ::player_rock, ::player_random, 100)
+    for (index: Int in testGames.indices){
+        println(" " + testGames.get(index))
+    }
+    println("winrate of " + p.get(0) + " : " + countWinsForPlayer(testGames, "player_rock") )
+    println("winrate op " + p.get(1) + " : " + countWinsForPlayer(testGames, "player_random") )
+    println("draws are " + p.get(2) + " : " + countWinsForPlayer(testGames, "draw") )
 }
 
 fun test_list_content(l: List <String>){
@@ -183,7 +196,13 @@ fun playManyGames(l: List<String>,
                   player1: (List<String>) -> String,
                   player2: (List<String>) -> String,
                   runs: Int): List<String>{
-    var gamesList: List<String> = mutableListOf("")
+    var gamesList: List<String> = mutableListOf<String>()
+
+
+    for (index: Int in 1..runs){
+        var e: List<String> = mutableListOf(playGame(l, p, player1, player2))
+        gamesList += e
+    }
     return gamesList
 }
 
@@ -201,6 +220,17 @@ fun playRockAgainst(l: List<String>, p: List<String>, against: Int): String {
 
 fun countWinsForPlayer(g: List<String>, player : String): Double{
     var winRate: Double = 0.0 // in %
+    var amountOfEntries: Int = g.size
+    var count: Int = 0
+    for (index: Int in g.indices){
+      if (g.get(index).equals(player)){
+            count += 1
+      }
+    }
+
+    // calculate win rate
+    winRate = count.toDouble() / amountOfEntries.toDouble()
+    winRate *= 100 // convert to percent
     // speoial use case for player "draw"
     return winRate
 }
