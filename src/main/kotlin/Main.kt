@@ -135,6 +135,14 @@ fun picRandomNumber(): Int{
 // return String
 fun playGame(l: List<String>, p: List<String>, player1: (List<String>) -> String, player2: (List<String>) -> String): String{
     var whoWins : String = ""
+    var pl1choice : String = player1(l)
+    var pl2choice : String = player2(l)
+
+    if (pl1choice.equals("rock")) {
+        whoWins = playRockAgainst(l, p, l.indexOf(pl2choice))
+    }else{
+
+    }
     return whoWins
 }
 
@@ -145,6 +153,17 @@ fun playManyGames(l: List<String>,
                   runs: Int): List<String>{
     var gamesList: List<String> = mutableListOf("")
     return gamesList
+}
+
+fun playRockAgainst(l: List<String>, p: List<String>, against: Int): String{
+    var whoWins: String = p.get(2) // draw
+    if ( l.get(against).equals("rock") ) {
+        whoWins = p.get(2)
+    } else if ( l.get(against).equals("paper") ){
+        whoWins = p.get(1)
+    } else if (l.get(against).equals("scissors"))
+        whoWins = p.get(0)
+    return whoWins
 }
 
 fun countWinsForPlayer(g: List<String>, player : String): Double{
