@@ -4,7 +4,7 @@
 // (2) build tests
 // (3) fill them with life
 
-fun main(args: Array<String>) {
+fun main() {
     println("Welcome to Rock Paper Scissors! ")
 
     // list are simpler than maps .. keep it simple
