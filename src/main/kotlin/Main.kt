@@ -152,8 +152,8 @@ fun player_rock(l: List<String>):String{
 
 // player 2
 fun player_random(l: List<String>):String{
-    var choice_2 : String = l.get(picRandomNumber()) // random from list
-    return choice_2
+    var choice2 : String = l.get(picRandomNumber()) // random from list
+    return choice2
 }
 
 fun picRandomNumber(): Int{
