@@ -112,6 +112,9 @@ fun runAllTest(l: List <String>, p: List<String>) {
     println("winrate of " + p.get(0) + " : " + countWinsForPlayer(testGames, "player_rock") )
     println("winrate op " + p.get(1) + " : " + countWinsForPlayer(testGames, "player_random") )
     println("draws are " + p.get(2) + " : " + countWinsForPlayer(testGames, "draw") )
+    println()
+    println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 0))
+    println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 1))
 }
 
 fun test_list_content(l: List <String>){
@@ -235,13 +238,15 @@ fun countWinsForPlayer(g: List<String>, player : String): Double{
     return winRate
 }
 
-fun countDraws(g: List<String>): Double{
-    var drawRate: Double = 0.0 // in %
-    return drawRate
-}
 
-fun createStatisticsForPlayer(g: List<String>, player: String): List<Double>{
+fun createStatisticsForPlayer(g: List<String>, p: List<String>, player: Int): List<Double>{
     var statistics: List<Double> = mutableListOf<Double>()
+    var wins: Double = countWinsForPlayer(g, p.get(player))
+    var draws: Double = countWinsForPlayer(g, p.get(2))
+    var losses: Double = 100.00 - (wins+draws)
+
+    statistics =  mutableListOf(wins, draws, losses)
+
     return statistics
 }
 
