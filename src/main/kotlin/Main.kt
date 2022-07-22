@@ -65,7 +65,13 @@ fun runAllTest(l: List <String>, p: List<String>) {
             print("failed ")
         }
     }
+    println()
 
+    println("Play some games -> ")
+    for (index: Int in playerRandomPics.indices){
+        var whoWins: String = playRockAgainst( l, p, l.indexOf(playerRandomPics.get(index)) )
+        println("player rock vs player random -> rock vs " + playerRandomPics.get(index) + " -> " + whoWins )
+    }
 
 }
 
@@ -155,14 +161,15 @@ fun playManyGames(l: List<String>,
     return gamesList
 }
 
-fun playRockAgainst(l: List<String>, p: List<String>, against: Int): String{
+fun playRockAgainst(l: List<String>, p: List<String>, against: Int): String {
     var whoWins: String = p.get(2) // draw
-    if ( l.get(against).equals("rock") ) {
+    if (l.get(against).equals("rock")) {
         whoWins = p.get(2)
-    } else if ( l.get(against).equals("paper") ){
+    } else if (l.get(against).equals("paper")) {
         whoWins = p.get(1)
-    } else if (l.get(against).equals("scissors"))
+    } else if (l.get(against).equals("scissors")) {
         whoWins = p.get(0)
+    }
     return whoWins
 }
 
