@@ -18,6 +18,7 @@ fun main() {
     //play many games
     //create stats
     //present them
+    playRound(rockPaperScissors, participants, 100, 3)
 
 }
 
@@ -115,6 +116,7 @@ fun runAllTest(l: List <String>, p: List<String>) {
     println()
     println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 0))
     println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 1))
+    println()
 }
 
 fun testListContent(l: List <String>){
@@ -214,6 +216,27 @@ fun playManyGames(l: List<String>,
         gamesList += e
     }
     return gamesList
+}
+
+fun playRound(l: List<String>,
+              p: List<String>,
+              runs: Int,
+              rounds: Int){
+    var gameList: MutableList<String>
+    var statsPlayerRock: List<Double>
+    var statsPlayerRandom: List<Double>
+    for (index: Int in 1..rounds){
+        gameList = playManyGames(l, p, ::playerRock, ::playerRandom, runs) as MutableList<String>
+        statsPlayerRock = createStatisticsForPlayer(gameList,p,0)
+        statsPlayerRandom = createStatisticsForPlayer(gameList, p, 1)
+        println("Round : " + index.toString())
+        println("player Rock " + statsPlayerRock.get(0) + "% wins " + statsPlayerRock.get(1) + "% draws " + statsPlayerRock.get(2) + "% losses " )
+        println("player Random " + statsPlayerRandom.get(0) + "% wins " + statsPlayerRandom.get(1) + "% draws " + statsPlayerRandom.get(2) + "% losses ")
+        println()
+        }
+    
+
+
 }
 
 fun playRockAgainst(l: List<String>, p: List<String>, against: Int): String {
