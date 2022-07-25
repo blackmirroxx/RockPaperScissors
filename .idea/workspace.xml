@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46f40e6d-62a8-47db-82dc-b7591c1937b7" name="Changes" comment="refactoring function_name -&gt; functionName">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-    </list>
+    <list default="true" id="46f40e6d-62a8-47db-82dc-b7591c1937b7" name="Changes" comment="play some rounds()" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -230,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658506672160</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="play some rounds()">
+      <created>1658742095216</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1658742095216</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -259,6 +263,7 @@
     <MESSAGE value="first minimal working version -&gt; many tests still missing" />
     <MESSAGE value="cleaning warnings" />
     <MESSAGE value="refactoring function_name -&gt; functionName" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring function_name -&gt; functionName" />
+    <MESSAGE value="play some rounds()" />
+    <option name="LAST_COMMIT_MESSAGE" value="play some rounds()" />
   </component>
 </project>
