@@ -13,7 +13,7 @@ fun main() {
 
 
     // tests
-    val testEnabled = false
+    val testEnabled = true
     if (testEnabled) {
         runAllTest(rockPaperScissors, participants)
     }
@@ -33,15 +33,9 @@ fun runAllTest(l: List <String>, p: List<String>) {
     testListContent(l)
 
     // test player_rock
-    // pics always rock
-    print("testing player rock -> : ")
-    if ( testPlayer(l, p, ::playerRock, "rock") ) {
-        println("passed")
-    } else {
-        println("failed")
-    }
+    testPlayerRock(l, p, ::playerRock)
 
-    // check random
+    // test random numbers
     print("random numbers -> ")
     for (index: Int in 1..30){
         print("" +picRandomNumber() + " ")
@@ -120,6 +114,15 @@ fun runAllTest(l: List <String>, p: List<String>) {
     println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 0))
     println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 1))
     println()
+}
+
+fun testPlayerRock(l: List<String>, p: List<String>, player1: (List<String>) -> String){
+    print("testing player rock -> : ")
+    if ( testPlayer(l, p, player1, "rock") ) {
+        println("passed")
+    } else {
+        println("failed")
+    }
 }
 
 fun testListContent(l: List <String>){
