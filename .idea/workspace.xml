@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46f40e6d-62a8-47db-82dc-b7591c1937b7" name="Changes" comment="test random numbers 0 &lt;= x &lt;= 2">
+    <list default="true" id="46f40e6d-62a8-47db-82dc-b7591c1937b7" name="Changes" comment="test player random">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
     </list>
@@ -272,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658787047229</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="test player random">
+      <created>1658788326852</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1658788326852</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -306,6 +313,7 @@
     <MESSAGE value="testEnabeled + gamesEnabled" />
     <MESSAGE value="test random numbers 0..2" />
     <MESSAGE value="test random numbers 0 &lt;= x &lt;= 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="test random numbers 0 &lt;= x &lt;= 2" />
+    <MESSAGE value="test player random" />
+    <option name="LAST_COMMIT_MESSAGE" value="test player random" />
   </component>
 </project>

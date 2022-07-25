@@ -7,18 +7,14 @@
 fun main() {
     println("Welcome to Rock Paper Scissors! ")
 
-    // list are simpler than maps .. keep it simple
     val rockPaperScissors = listOf<String>("rock", "paper", "scissors")
     val participants = listOf<String>("player_rock", "player_random", "draw") // whoWins
 
-
-    // tests
     val testEnabled = true
     if (testEnabled) {
         runAllTest(rockPaperScissors, participants)
     }
 
-    //play many games
     val gamesEnabled = true
     if (gamesEnabled) {
         playRound(rockPaperScissors, participants, 100, 3)
@@ -38,12 +34,9 @@ fun runAllTest(l: List <String>, p: List<String>) {
     testRandomNumberRange()
 
     val playerRandomPics = testRandomPlayer(l,p,::playerRandom)
+    testGamesBasedOnGivenRandomPics(l, p, playerRandomPics)
 
-    println("Play some games -> ")
-    for (index: Int in playerRandomPics.indices){
-        val whoWins: String = playRockAgainst( l, p, l.indexOf(playerRandomPics.get(index)) )
-        println("player rock vs player random -> rock vs " + playerRandomPics.get(index) + " -> " + whoWins )
-    }
+    testWhoWinsWithFunctionsAsParameter(l, p, ::playerRock, ::playerRandom)
 
     println()
     println("play some more ...")
@@ -88,6 +81,27 @@ fun runAllTest(l: List <String>, p: List<String>) {
     println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 0))
     println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 1))
     println()
+}
+
+fun testWhoWinsWithFunctionsAsParameter(l: List<String>,
+                                        p: List<String>,
+                                        player1: (List<String>) -> String,
+                                        player2: (List<String>) -> String){
+    println()
+    println("play some more with functions as parameter ...")
+    for (index: Int in 1..10){
+        val whoWins: String = playGame(l, p, player1, player2)
+        println("player rock vs player random -> " + whoWins )
+    }
+    println()
+}
+
+fun testGamesBasedOnGivenRandomPics(l: List<String>, p: List<String>, playerRandomPics: List<String>){
+    println("Play some games -> based on given List")
+    for (index: Int in playerRandomPics.indices){
+        val whoWins: String = playRockAgainst( l, p, l.indexOf(playerRandomPics.get(index)) )
+        println("player rock vs player random -> rock vs " + playerRandomPics.get(index) + " -> " + whoWins )
+    }
 }
 
 fun testRandomPlayer(l: List<String>, p: List<String>, player2: (List<String>) -> String): List<String>{
