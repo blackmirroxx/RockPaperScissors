@@ -16,8 +16,6 @@ fun main() {
     runAllTest(rockPaperScissors, participants)
 
     //play many games
-    //create stats
-    //present them
     playRound(rockPaperScissors, participants, 100, 3)
 
 }
@@ -26,7 +24,7 @@ fun main() {
 // test ----------------------------------------------------------------------------------------------------------------
 fun runAllTest(l: List <String>, p: List<String>) {
     // run all the tests
-    // maker reports ... passes and fails
+    // make reports ... passes and fails
     testListContent(l)
 
     // test player_rock
@@ -222,6 +220,7 @@ fun playRound(l: List<String>,
               p: List<String>,
               runs: Int,
               rounds: Int){
+
     var gameList: MutableList<String>
     var statsPlayerRock: List<Double>
     var statsPlayerRandom: List<Double>
@@ -230,8 +229,12 @@ fun playRound(l: List<String>,
         statsPlayerRock = createStatisticsForPlayer(gameList,p,0)
         statsPlayerRandom = createStatisticsForPlayer(gameList, p, 1)
         println("Round : " + index.toString())
-        println("player Rock " + statsPlayerRock.get(0) + "% wins " + statsPlayerRock.get(1) + "% draws " + statsPlayerRock.get(2) + "% losses " )
-        println("player Random " + statsPlayerRandom.get(0) + "% wins " + statsPlayerRandom.get(1) + "% draws " + statsPlayerRandom.get(2) + "% losses ")
+        println("player Rock " + "%.2f".format(statsPlayerRock.get(0)) + "% wins "
+                               + "%.2f".format(statsPlayerRock.get(1)) + "% draws "
+                               + "%.2f".format(statsPlayerRock.get(2)) + "% losses " )
+        println("player Random " + "%.2f".format(statsPlayerRandom.get(0)) + "% wins "
+                                 + "%.2f".format(statsPlayerRandom.get(1)) + "% draws "
+                                 + "%.2f".format(statsPlayerRandom.get(2)) + "% losses ")
         println()
         }
     
