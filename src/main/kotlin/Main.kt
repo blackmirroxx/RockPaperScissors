@@ -24,9 +24,6 @@ fun main() {
 
 // test ----------------------------------------------------------------------------------------------------------------
 fun runAllTest(l: List <String>, p: List<String>) {
-    // run all the tests
-    // make reports ... passes and fails
-
     testListContent(l)
 
     testPlayerRock(l, p, ::playerRock)
@@ -40,22 +37,7 @@ fun runAllTest(l: List <String>, p: List<String>) {
 
     testWhoWinsWithFunctionsAsParameter(l, p, ::playerRock, ::playerRandom)
     testWhoWinsHigherOrder(l,p,::playerRock, ::playerRandom)
-
-    // play many games
-    println()
-    println()
-    println("Create a sample with 100 games : ")
-    val testGames: List<String> = playManyGames(l, p, ::playerRock, ::playerRandom, 100)
-    for (index: Int in testGames.indices){
-        println(" " + testGames.get(index))
-    }
-    println("winrate of " + p.get(0) + " : " + countWinsForPlayer(testGames, "player_rock") )
-    println("winrate op " + p.get(1) + " : " + countWinsForPlayer(testGames, "player_random") )
-    println("draws are " + p.get(2) + " : " + countWinsForPlayer(testGames, "draw") )
-    println()
-    println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 0))
-    println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 1))
-    println()
+    testGamesWithStats(l, p, ::playerRock, ::playerRandom, 100)
 }
 
 fun testRockPaperScissors(l: List<String>, p: List<String>){
@@ -218,6 +200,28 @@ fun testPlayerContains(l: List<String>, p: List<String>, player: (List<String>) 
     return test
 }
 
+fun testGamesWithStats(l: List<String>,
+                       p: List<String>,
+                       player1: (List<String>) -> String,
+                       player2: (List<String>) -> String,
+                       runs: Int){
+    println("Test games with stats : ")
+    println("Create a sample with " + runs.toString() + " games : ")
+    val testGames: List<String> = playManyGames(l, p, player1, player2, 100)
+    for (index: Int in testGames.indices){
+        println(" " + testGames.get(index))
+    }
+    println("----------------------------------------------------------------------------------")
+    println("The statistics are : ")
+    println("winrate of " + p.get(0) + " : " + countWinsForPlayer(testGames, "player_rock") )
+    println("winrate op " + p.get(1) + " : " + countWinsForPlayer(testGames, "player_random") )
+    println("draws are " + p.get(2) + " : " + countWinsForPlayer(testGames, "draw") )
+    println()
+    println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 0))
+    println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 1))
+    println("----------------------------------------------------------------------------------")
+    println()
+}
 
 
 // logic ---------------------------------------------------------------------------------------------------------------
