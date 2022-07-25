@@ -37,28 +37,7 @@ fun runAllTest(l: List <String>, p: List<String>) {
 
     testRandomNumberRange()
 
-    // test player random
-    print("player random pics ->")
-    for (index: Int in 1..10){
-        print("" + playerRandom(l) + " ")
-    }
-    println()
-    val playerRandomPics : MutableList<String> = mutableListOf<String>().toMutableList()
-    for (index: Int in 1 .. 10){
-        val e: List<String> =  mutableListOf<String>(playerRandom(l))
-        playerRandomPics += e
-    }
-    println("player random pics -> " + playerRandomPics)
-
-    print("testing player random -> ")
-    for (index: Int in playerRandomPics.indices) {
-        if (testPlayerContains(l, p, ::playerRandom)) {
-            print("passed ")
-        } else {
-            print("failed ")
-        }
-    }
-    println()
+    val playerRandomPics = testRandomPlayer(l,p,::playerRandom)
 
     println("Play some games -> ")
     for (index: Int in playerRandomPics.indices){
@@ -109,6 +88,31 @@ fun runAllTest(l: List <String>, p: List<String>) {
     println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 0))
     println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 1))
     println()
+}
+
+fun testRandomPlayer(l: List<String>, p: List<String>, player2: (List<String>) -> String): List<String>{
+    print("player random pics ->")
+    for (index: Int in 1..10){
+        print("" + playerRandom(l) + " ")
+    }
+    println()
+    val playerRandomPics : MutableList<String> = mutableListOf<String>().toMutableList()
+    for (index: Int in 1 .. 10){
+        val e: List<String> =  mutableListOf<String>(playerRandom(l))
+        playerRandomPics += e
+    }
+    println("player random pics -> " + playerRandomPics)
+
+    print("testing player random -> ")
+    for (index: Int in playerRandomPics.indices) {
+        if (testPlayerContains(l, p, player2)) {
+            print("passed ")
+        } else {
+            print("failed ")
+        }
+    }
+    println()
+    return playerRandomPics
 }
 
 fun testPlayerRock(l: List<String>, p: List<String>, player1: (List<String>) -> String){
