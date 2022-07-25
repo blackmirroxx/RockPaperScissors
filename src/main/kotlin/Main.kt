@@ -13,11 +13,16 @@ fun main() {
 
 
     // tests
-    runAllTest(rockPaperScissors, participants)
+    val testEnabled = false
+    if (testEnabled) {
+        runAllTest(rockPaperScissors, participants)
+    }
 
     //play many games
-    playRound(rockPaperScissors, participants, 100, 3)
-
+    val gamesEnabled = true
+    if (gamesEnabled) {
+        playRound(rockPaperScissors, participants, 100, 3)
+    }
 }
 
 
