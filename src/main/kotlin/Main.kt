@@ -36,10 +36,31 @@ fun runAllTest(l: List <String>, p: List<String>) {
     val playerRandomPics = testRandomPlayer(l,p,::playerRandom)
     testGamesBasedOnGivenRandomPics(l, p, playerRandomPics)
 
+    testRockPaperScissors(l, p)
+
     testWhoWinsWithFunctionsAsParameter(l, p, ::playerRock, ::playerRandom)
     testWhoWinsHigherOrder(l,p,::playerRock, ::playerRandom)
 
-    println("Testing playing against -> ")
+    // play many games
+    println()
+    println()
+    println("Create a sample with 100 games : ")
+    val testGames: List<String> = playManyGames(l, p, ::playerRock, ::playerRandom, 100)
+    for (index: Int in testGames.indices){
+        println(" " + testGames.get(index))
+    }
+    println("winrate of " + p.get(0) + " : " + countWinsForPlayer(testGames, "player_rock") )
+    println("winrate op " + p.get(1) + " : " + countWinsForPlayer(testGames, "player_random") )
+    println("draws are " + p.get(2) + " : " + countWinsForPlayer(testGames, "draw") )
+    println()
+    println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 0))
+    println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 1))
+    println()
+}
+
+fun testRockPaperScissors(l: List<String>, p: List<String>){
+    println()
+    println("Testing core mechanic -> rock paper scissors ")
     print("rock against rock -> ")
     if ( playRockAgainst(l, p, 0).equals("draw") ){
         println("passed")
@@ -58,22 +79,6 @@ fun runAllTest(l: List <String>, p: List<String>) {
     } else {
         println("failed")
     }
-
-    // play many games
-    println()
-    println()
-    println("Create a sample with 100 games : ")
-    val testGames: List<String> = playManyGames(l, p, ::playerRock, ::playerRandom, 100)
-    for (index: Int in testGames.indices){
-        println(" " + testGames.get(index))
-    }
-    println("winrate of " + p.get(0) + " : " + countWinsForPlayer(testGames, "player_rock") )
-    println("winrate op " + p.get(1) + " : " + countWinsForPlayer(testGames, "player_random") )
-    println("draws are " + p.get(2) + " : " + countWinsForPlayer(testGames, "draw") )
-    println()
-    println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 0))
-    println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 1))
-    println()
 }
 
 fun testWhoWinsHigherOrder(l: List<String>,
