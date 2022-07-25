@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46f40e6d-62a8-47db-82dc-b7591c1937b7" name="Changes" comment="testEnabeled + gamesEnabled">
+    <list default="true" id="46f40e6d-62a8-47db-82dc-b7591c1937b7" name="Changes" comment="test random numbers 0..2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
     </list>
@@ -258,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658784189843</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="testEnabeled + gamesEnabled">
+      <created>1658785184638</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1658785184638</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -290,6 +297,7 @@
     <MESSAGE value="play some rounds()" />
     <MESSAGE value="play some rounded on 100.00% but internally still not rounded" />
     <MESSAGE value="testEnabeled + gamesEnabled" />
-    <option name="LAST_COMMIT_MESSAGE" value="testEnabeled + gamesEnabled" />
+    <MESSAGE value="test random numbers 0..2" />
+    <option name="LAST_COMMIT_MESSAGE" value="test random numbers 0..2" />
   </component>
 </project>

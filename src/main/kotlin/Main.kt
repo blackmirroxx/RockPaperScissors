@@ -30,19 +30,14 @@ fun main() {
 fun runAllTest(l: List <String>, p: List<String>) {
     // run all the tests
     // make reports ... passes and fails
+
     testListContent(l)
 
-    // test player_rock
     testPlayerRock(l, p, ::playerRock)
 
-    // test random numbers
-    print("random numbers -> ")
-    for (index: Int in 1..30){
-        print("" +picRandomNumber() + " ")
-    }
-    println()
+    testRandomNumberRange()
 
-    // check player random
+    // test player random
     print("player random pics ->")
     for (index: Int in 1..10){
         print("" + playerRandom(l) + " ")
@@ -123,6 +118,28 @@ fun testPlayerRock(l: List<String>, p: List<String>, player1: (List<String>) -> 
     } else {
         println("failed")
     }
+}
+
+fun testRandomNumberRange(){
+    print("random numbers -> ")
+    val randomNumbers: MutableList<Int> = mutableListOf<Int>().toMutableList()
+    for (index: Int in 1 .. 30){
+        val e: List<Int> = listOf(picRandomNumber())
+        randomNumbers += e
+    }
+    for (index: Int in randomNumbers.indices){
+        print("" + (randomNumbers.get(index)).toString() + " ")
+    }
+    println()
+    println("testing random numbers within range 0 to 2 -> ")
+    for (inex: Int in randomNumbers.indices){
+        if (0 <= randomNumbers.get(inex) && randomNumbers.get(inex) <= 2){
+            print("p ")
+        }else{
+            print("f ")
+        }
+    }
+    println()
 }
 
 fun testListContent(l: List <String>){
