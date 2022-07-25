@@ -37,14 +37,7 @@ fun runAllTest(l: List <String>, p: List<String>) {
     testGamesBasedOnGivenRandomPics(l, p, playerRandomPics)
 
     testWhoWinsWithFunctionsAsParameter(l, p, ::playerRock, ::playerRandom)
-
-    println()
-    println("play some more ...")
-    for (index: Int in 1..10){
-        val whoWins: String = playGame(l, p, ::playerRock, ::playerRandom)
-        println("player rock vs player random -> " + whoWins )
-    }
-    println()
+    testWhoWinsHigherOrder(l,p,::playerRock, ::playerRandom)
 
     println("Testing playing against -> ")
     print("rock against rock -> ")
@@ -80,6 +73,20 @@ fun runAllTest(l: List <String>, p: List<String>) {
     println()
     println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 0))
     println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 1))
+    println()
+}
+
+fun testWhoWinsHigherOrder(l: List<String>,
+                           p: List<String>,
+                           player1: (List<String>) -> String,
+                           player2: (List<String>) -> String){
+
+    println()
+    println("play who wins - higher order functions ...")
+    for (index: Int in 1..10){
+        val whoWins: String = playGame(l, p, player1, player2)
+        println("player rock vs player random -> " + whoWins )
+    }
     println()
 }
 
