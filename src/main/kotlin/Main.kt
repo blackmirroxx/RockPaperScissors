@@ -253,9 +253,7 @@ fun picRandomNumber(): Int{
     return number
 }
 
-// parameter: list, participants, player1, player2, player3 (draws)
-// player1 and player2 are functions passed as a parameter
-// return String
+
 fun playGame(l: List<String>, p: List<String>, player1: (List<String>) -> String, player2: (List<String>) -> String): String{
     val pl1choice : String = player1(l)
     val pl2choice : String = player2(l)
