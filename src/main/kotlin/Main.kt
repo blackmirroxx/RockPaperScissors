@@ -15,6 +15,10 @@ const val PLAYERROCK   = 0
 const val PLAYERRANDOM = 1
 const val PLAYERDRAW   = 2
 
+const val WINS   = 0
+const val DRAWS  = 1
+const val LOSSES = 2
+
 fun main() {
     println("Welcome to Rock Paper Scissors! ")
 
@@ -224,12 +228,12 @@ fun testGamesWithStats(l: List<String>,
     }
     println("----------------------------------------------------------------------------------")
     println("The statistics are : ")
-    println("winrate of " + p.get(0) + " : " + countWinsForPlayer(testGames, "player_rock") )
-    println("winrate op " + p.get(1) + " : " + countWinsForPlayer(testGames, "player_random") )
-    println("draws are " + p.get(2) + " : " + countWinsForPlayer(testGames, "draw") )
+    println("winrate of " + p.get(PLAYERROCK) + " : " + "%.2f".format(countWinsForPlayer(testGames, "player_rock")) )
+    println("winrate op " + p.get(PLAYERRANDOM) + " : " + "%.2f".format(countWinsForPlayer(testGames, "player_random")) )
+    println("draws are " + p.get(PLAYERDRAW) + " : " + "%.2f".format(countWinsForPlayer(testGames, "draw")) )
     println()
-    println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 0))
-    println("statistics for " + p.get(0) + " : " + createStatisticsForPlayer(testGames, p, 1))
+    println("statistics for " + p.get(PLAYERROCK) + " : " + createStatisticsForPlayer(testGames, p, PLAYERROCK))
+    println("statistics for " + p.get(PLAYERRANDOM) + " : " + createStatisticsForPlayer(testGames, p, PLAYERRANDOM))
     println("----------------------------------------------------------------------------------")
     println()
 }
@@ -297,12 +301,12 @@ fun playRound(l: List<String>,
         statsPlayerRock = createStatisticsForPlayer(gameList,p,PLAYERROCK)
         statsPlayerRandom = createStatisticsForPlayer(gameList, p, PLAYERRANDOM)
         println("Round : " + index.toString())
-        println("player Rock " + "%.2f".format(statsPlayerRock.get(0)) + "% wins "
-                               + "%.2f".format(statsPlayerRock.get(1)) + "% draws "
-                               + "%.2f".format(statsPlayerRock.get(2)) + "% losses " )
-        println("player Random " + "%.2f".format(statsPlayerRandom.get(0)) + "% wins "
-                                 + "%.2f".format(statsPlayerRandom.get(1)) + "% draws "
-                                 + "%.2f".format(statsPlayerRandom.get(2)) + "% losses ")
+        println("player Rock " + "%.2f".format(statsPlayerRock.get(WINS)) + "% wins "
+                               + "%.2f".format(statsPlayerRock.get(DRAWS)) + "% draws "
+                               + "%.2f".format(statsPlayerRock.get(LOSSES)) + "% losses " )
+        println("player Random " + "%.2f".format(statsPlayerRandom.get(WINS)) + "% wins "
+                                 + "%.2f".format(statsPlayerRandom.get(DRAWS)) + "% draws "
+                                 + "%.2f".format(statsPlayerRandom.get(LOSSES)) + "% losses ")
         println()
         }
     
