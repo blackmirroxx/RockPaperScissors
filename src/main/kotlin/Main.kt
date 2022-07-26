@@ -26,14 +26,10 @@ fun main() {
     val participants = listOf<String>("player_rock", "player_random", "draw") // whoWins
 
     val testEnabled = true
-    if (testEnabled) {
-        runAllTest(rockPaperScissors, participants)
-    }
+    if (testEnabled) runAllTest(rockPaperScissors, participants)
 
     val gamesEnabled = true
-    if (gamesEnabled) {
-        playRound(rockPaperScissors, participants, RUNS, ROUNDS)
-    }
+    if (gamesEnabled) playRound(rockPaperScissors, participants, RUNS, ROUNDS)
 }
 
 
