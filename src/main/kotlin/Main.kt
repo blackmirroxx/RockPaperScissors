@@ -171,26 +171,13 @@ fun testRandomNumberRange(){
 
 fun testListContent(l: List <String>){
     print("rock -> ")
-    if (l.get(ROCK).equals("rock")) {
-        println("passed")
-    } else {
-        println("failed")
-    }
+    if (l.get(ROCK).equals("rock")) println("passed") else println("failed")
 
     print("paper -> ")
-    if (l.get(PAPER).equals("paper")) {
-        println("passed")
-    } else {
-        println("failed")
-    }
+    if (l.get(PAPER).equals("paper")) println("passed")  else  println("failed")
 
     print("scissors -> ")
-    if (l.get(SCISSORS).equals("scissors")) {
-        println("passed")
-    } else {
-        println("failed")
-    }
-
+    if (l.get(SCISSORS).equals("scissors")) println("passed") else println("failed")
 }
 
 fun testPlayer(l: List<String>, p: List<String>, player: (List<String>) -> String, expeted_pic: String): Boolean{
