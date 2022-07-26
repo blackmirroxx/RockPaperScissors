@@ -127,11 +127,7 @@ fun testRandomPlayer(l: List<String>, p: List<String>, player2: (List<String>) -
 
     print("testing player random -> ")
     for (index: Int in playerRandomPics.indices) {
-        if (testPlayerContains(l, p, player2)) {
-            print("passed ")
-        } else {
-            print("failed ")
-        }
+        if (testPlayerContains(l, p, player2)) print("passed ") else print("failed ")
     }
     println()
     return playerRandomPics
@@ -277,10 +273,7 @@ fun playRound(l: List<String>,
                                  + "%.2f".format(statsPlayerRandom.get(DRAWS)) + "% draws "
                                  + "%.2f".format(statsPlayerRandom.get(LOSSES)) + "% losses ")
         println()
-        }
-    
-
-
+    }
 }
 
 fun playRockAgainst(l: List<String>, p: List<String>, against: Int): String {
