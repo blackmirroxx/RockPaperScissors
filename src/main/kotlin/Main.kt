@@ -200,14 +200,9 @@ fun testPlayer(l: List<String>, p: List<String>, player: (List<String>) -> Strin
 }
 
 fun testPlayerContains(l: List<String>, p: List<String>, player: (List<String>) -> String): Boolean{
-    val test: Boolean
-    if (p.size>=3) {
-        test = l.contains(player(l))
-    } else {
-        println("something went wrong")
-        test = false
-    }
-    return test
+    if (p.size != 3) return false
+    return l.contains(player(l)) // can be true or false
+
 }
 
 fun testGamesWithStats(l: List<String>,
@@ -316,9 +311,7 @@ fun countWinsForPlayer(g: List<String>, player : String): Double{
     val amountOfEntries: Int = g.size
     var count = 0
     for (index: Int in g.indices){
-      if (g.get(index).equals(player)){
-            count += 1
-      }
+      if (g.get(index).equals(player))  count += 1
     }
 
     // calculate win rate
