@@ -194,13 +194,9 @@ fun testListContent(l: List <String>){
 }
 
 fun testPlayer(l: List<String>, p: List<String>, player: (List<String>) -> String, expeted_pic: String): Boolean{
-    val test : Boolean
-    test = false
-
-    if(p.get(PLAYERROCK).equals("play_random")) return test
+    if(p.get(PLAYERROCK).equals("play_random")) return false
     if (p.get(PLAYERROCK).equals("player_rock")) return player(l).equals(expeted_pic)
-
-    return test
+    return false
 }
 
 fun testPlayerContains(l: List<String>, p: List<String>, player: (List<String>) -> String): Boolean{
@@ -314,15 +310,12 @@ fun playRound(l: List<String>,
 }
 
 fun playRockAgainst(l: List<String>, p: List<String>, against: Int): String {
-    var whoWins: String = p.get(PLAYERDRAW)
-    if (l.get(against).equals("rock")) {
-        whoWins = p.get(PLAYERDRAW)
-    } else if (l.get(against).equals("paper")) {
-        whoWins = p.get(PLAYERRANDOM)
-    } else if (l.get(against).equals("scissors")) {
-        whoWins = p.get(PLAYERROCK)
-    }
-    return whoWins
+
+    if ( l.get(against).equals(l.get(ROCK)) ) return p.get(PLAYERDRAW)
+    if ( l.get(against).equals(l.get(PAPER)) ) return p.get(PLAYERRANDOM)
+    if ( l.get(against).equals(l.get(SCISSORS)) ) return p.get(PLAYERROCK)
+
+    return p.get(PLAYERDRAW)
 }
 
 fun countWinsForPlayer(g: List<String>, player : String): Double{
