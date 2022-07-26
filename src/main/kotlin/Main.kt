@@ -191,7 +191,7 @@ fun testListContent(l: List <String>){
 
 fun testPlayer(l: List<String>, p: List<String>, player: (List<String>) -> String, expeted_pic: String): Boolean{
     val test: Boolean
-    if (p.get(0).equals("player_rock")) {
+    if (p.get(ROCK).equals("player_rock")) {
         test = player(l).equals(expeted_pic)
     }else{
         println("Not implemented yet")
@@ -218,7 +218,7 @@ fun testGamesWithStats(l: List<String>,
                        runs: Int){
     println("Test games with stats : ")
     println("Create a sample with " + runs.toString() + " games : ")
-    val testGames: List<String> = playManyGames(l, p, player1, player2, 100)
+    val testGames: List<String> = playManyGames(l, p, player1, player2, runs)
     for (index: Int in testGames.indices){
         println(" " + testGames.get(index))
     }
@@ -239,9 +239,8 @@ fun testGamesWithStats(l: List<String>,
 
 
 // player 1
-fun playerRock(l: List<String>):String{
-    val choice1 :String = l.get(0)
-    return choice1
+fun playerRock(l: List<String>): String {
+    return l.get(ROCK)
 }
 
 // player 2
