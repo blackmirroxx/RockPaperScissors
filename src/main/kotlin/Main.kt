@@ -54,16 +54,9 @@ fun runAllTest(l: List <String>, p: List<String>) {
 fun testRockPaperScissors(l: List<String>, p: List<String>){
     println()
     println("Testing core mechanic -> rock paper scissors ")
-
     testRockAgainstRock(l, p)
     testRockAgainstPaper(l, p)
-
-    print("rock against scissors -> ")
-    if ( playRockAgainst(l, p, SCISSORS).equals(p.get(PLAYERROCK))){
-        println("passed")
-    } else {
-        println("failed")
-    }
+    testRockAgainstScissors(l, p)
 }
 
 fun testRockAgainstRock(l: List<String>, p: List<String>){
@@ -75,6 +68,12 @@ fun testRockAgainstRock(l: List<String>, p: List<String>){
 fun testRockAgainstPaper(l: List<String>, p: List<String>){
     print("rock against paper -> ")
     if ( playRockAgainst(l, p, PAPER).equals(p.get(PLAYERRANDOM))) println("passed") else println("failed")
+
+}
+
+fun testRockAgainstScissors(l: List<String>, p: List<String>){
+    print("rock against scissors -> ")
+    if ( playRockAgainst(l, p, SCISSORS).equals(p.get(PLAYERROCK))) println("passed")  else println("failed")
 
 }
 
