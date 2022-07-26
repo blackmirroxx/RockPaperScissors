@@ -4,6 +4,17 @@
 // (2) build tests
 // (3) fill them with life
 
+const val RUNS   = 100
+const val ROUNDS = 3
+
+const val ROCK     = 0
+const val PAPER    = 1
+const val SCISSORS = 2
+
+const val PLAYERROCK   = 0
+const val PLAYERRANDOM = 1
+const val DRAW         = 2
+
 fun main() {
     println("Welcome to Rock Paper Scissors! ")
 
@@ -17,7 +28,7 @@ fun main() {
 
     val gamesEnabled = true
     if (gamesEnabled) {
-        playRound(rockPaperScissors, participants, 100, 3)
+        playRound(rockPaperScissors, participants, RUNS, ROUNDS)
     }
 }
 
@@ -37,26 +48,26 @@ fun runAllTest(l: List <String>, p: List<String>) {
 
     testWhoWinsWithFunctionsAsParameter(l, p, ::playerRock, ::playerRandom)
     testWhoWinsHigherOrder(l,p,::playerRock, ::playerRandom)
-    testGamesWithStats(l, p, ::playerRock, ::playerRandom, 100)
+    testGamesWithStats(l, p, ::playerRock, ::playerRandom, RUNS)
 }
 
 fun testRockPaperScissors(l: List<String>, p: List<String>){
     println()
     println("Testing core mechanic -> rock paper scissors ")
     print("rock against rock -> ")
-    if ( playRockAgainst(l, p, 0).equals("draw") ){
+    if ( playRockAgainst(l, p, ROCK).equals(p.get(DRAW)) ){
         println("passed")
     } else {
         println("failed")
     }
     print("rock against paper -> ")
-    if ( playRockAgainst(l, p, 1).equals(p.get(1))){
+    if ( playRockAgainst(l, p, PAPER).equals(p.get(PLAYERRANDOM))){
         println("passed")
     } else {
         println("failed")
     }
     print("rock against scissors -> ")
-    if ( playRockAgainst(l, p, 2).equals(p.get(0))){
+    if ( playRockAgainst(l, p, SCISSORS).equals(p.get(PLAYERROCK))){
         println("passed")
     } else {
         println("failed")
@@ -156,21 +167,21 @@ fun testRandomNumberRange(){
 
 fun testListContent(l: List <String>){
     print("rock -> ")
-    if (l.get(0).equals("rock")) {
+    if (l.get(ROCK).equals("rock")) {
         println("passed")
     } else {
         println("failed")
     }
 
     print("paper -> ")
-    if (l.get(1).equals("paper")) {
+    if (l.get(PAPER).equals("paper")) {
         println("passed")
     } else {
         println("failed")
     }
 
     print("scissors -> ")
-    if (l.get(2).equals("scissors")) {
+    if (l.get(SCISSORS).equals("scissors")) {
         println("passed")
     } else {
         println("failed")
