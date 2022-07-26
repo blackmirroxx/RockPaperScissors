@@ -13,7 +13,7 @@ const val SCISSORS = 2
 
 const val PLAYERROCK   = 0
 const val PLAYERRANDOM = 1
-const val DRAW         = 2
+const val PLAYERDRAW   = 2
 
 fun main() {
     println("Welcome to Rock Paper Scissors! ")
@@ -55,7 +55,7 @@ fun testRockPaperScissors(l: List<String>, p: List<String>){
     println()
     println("Testing core mechanic -> rock paper scissors ")
     print("rock against rock -> ")
-    if ( playRockAgainst(l, p, ROCK).equals(p.get(DRAW)) ){
+    if ( playRockAgainst(l, p, ROCK).equals(p.get(PLAYERDRAW)) ){
         println("passed")
     } else {
         println("failed")
@@ -244,9 +244,8 @@ fun playerRock(l: List<String>): String {
 }
 
 // player 2
-fun playerRandom(l: List<String>):String{
-    val choice2 : String = l.get(picRandomNumber()) // random from list
-    return choice2
+fun playerRandom(l: List<String>): String {
+    return l.get(picRandomNumber())
 }
 
 fun picRandomNumber(): Int{
@@ -295,8 +294,8 @@ fun playRound(l: List<String>,
     var statsPlayerRandom: List<Double>
     for (index: Int in 1..rounds){
         gameList = playManyGames(l, p, ::playerRock, ::playerRandom, runs) as MutableList<String>
-        statsPlayerRock = createStatisticsForPlayer(gameList,p,0)
-        statsPlayerRandom = createStatisticsForPlayer(gameList, p, 1)
+        statsPlayerRock = createStatisticsForPlayer(gameList,p,PLAYERROCK)
+        statsPlayerRandom = createStatisticsForPlayer(gameList, p, PLAYERRANDOM)
         println("Round : " + index.toString())
         println("player Rock " + "%.2f".format(statsPlayerRock.get(0)) + "% wins "
                                + "%.2f".format(statsPlayerRock.get(1)) + "% draws "
@@ -312,13 +311,13 @@ fun playRound(l: List<String>,
 }
 
 fun playRockAgainst(l: List<String>, p: List<String>, against: Int): String {
-    var whoWins: String = p.get(2) // draw
+    var whoWins: String = p.get(PLAYERDRAW)
     if (l.get(against).equals("rock")) {
-        whoWins = p.get(2)
+        whoWins = p.get(PLAYERDRAW)
     } else if (l.get(against).equals("paper")) {
-        whoWins = p.get(1)
+        whoWins = p.get(PLAYERRANDOM)
     } else if (l.get(against).equals("scissors")) {
-        whoWins = p.get(0)
+        whoWins = p.get(PLAYERROCK)
     }
     return whoWins
 }
@@ -344,7 +343,7 @@ fun countWinsForPlayer(g: List<String>, player : String): Double{
 fun createStatisticsForPlayer(g: List<String>, p: List<String>, player: Int): List<Double>{
     val statistics: List<Double>
     val wins: Double = countWinsForPlayer(g, p.get(player))
-    val draws: Double = countWinsForPlayer(g, p.get(2))
+    val draws: Double = countWinsForPlayer(g, p.get(PLAYERDRAW))
     val losses: Double = 100.00 - (wins+draws)
 
     statistics =  mutableListOf(wins, draws, losses)
