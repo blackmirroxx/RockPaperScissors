@@ -194,13 +194,12 @@ fun testListContent(l: List <String>){
 }
 
 fun testPlayer(l: List<String>, p: List<String>, player: (List<String>) -> String, expeted_pic: String): Boolean{
-    val test: Boolean
-    if (p.get(ROCK).equals("player_rock")) {
-        test = player(l).equals(expeted_pic)
-    }else{
-        println("Not implemented yet")
-        test = false
-    }
+    val test : Boolean
+    test = false
+
+    if(p.get(PLAYERROCK).equals("play_random")) return test
+    if (p.get(PLAYERROCK).equals("player_rock")) return player(l).equals(expeted_pic)
+
     return test
 }
 
