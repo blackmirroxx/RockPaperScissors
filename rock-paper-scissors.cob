@@ -1,6 +1,7 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID. RANDOM-NUMBER.
        AUTHOR. "ricardo".
+       
        DATA DIVISION.
        WORKING-STORAGE SECTION.
            01 RAND-NUM PIC 9(2).
@@ -51,4 +52,4 @@
 
            DISPLAY RESULT.
        STOP RUN.
-
+      *> works on netBSD 11 as well, with some warning 
